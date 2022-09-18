@@ -1,0 +1,303 @@
+
+#puzzle-container {
+  overflow: hidden;
+}
+
+.puzzle__card {
+  border: var(--darkborder);
+  background: var(--darksecondary);
+  padding: 20px;
+  width: auto;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.puzzle__card h1,
+.puzzle__card p {
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 7px;
+  width: 100%;
+  color: white;
+  line-height: 1.4em;
+}
+
+.puzzle__card header {
+  margin-bottom: 20px;
+}
+
+/* 
+  -----------------------------------
+  PUZZLE GRID + CELLS 
+  -----------------------------------
+*/
+#puzzle-grid {
+  width: 73%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: auto;
+  grid-gap: 2px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#puzzle-grid .cell {
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-shadow: none;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#puzzle-grid .cell.missing {
+  background: var(--darksecondary);
+  opacity: 0;
+}
+
+#puzzle-grid #pointer.cell {
+  background: white;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  position: absolute;
+  box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.125);
+  transform: scale(1.1);
+  background-size: cover;
+}
+
+#puzzle-grid #pointer.cell.positioned {
+  background: white;
+  box-shadow: none;
+  transform: scale(1);
+  background-size: cover;
+}
+
+/* 
+  -----------------------------------
+  SLIDER 
+  -----------------------------------
+*/
+.slide-container {
+  width: 73%;
+  margin-top: 15px;
+  background: var(--greydark);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+#slide-fill {
+  background: #07cdff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  z-index: 100;
+  border-radius: 30px;
+  background-image: linear-gradient(-45deg,
+      rgba(97, 219, 251) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(97, 219, 251) 50%,
+      rgba(97, 219, 251) 75%,
+      transparent 75%,
+      transparent);
+  -webkit-background-size: 50px 50px;
+  -moz-background-size: 50px 50px;
+  -ms-background-size: 50px 50px;
+  background-size: 50px 50px;
+  -webkit-animation: progress 2s linear infinite;
+  -moz-animation: progress 2s linear infinite;
+  -ms-animation: progress 2s linear infinite;
+  animation: progress 2s linear infinite;
+}
+
+#call-action {
+  position: absolute;
+  white-space: nowrap;
+  font-family: sans-serif;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: darkgrey;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 73%;
+  height: 25px;
+  background: none;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin: 0;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+#slider-input {
+  z-index: 100;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #07cdff;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #07cdff;
+  cursor: pointer;
+}
+
+/* 
+  -----------------------------------
+  BUTTON 
+  -----------------------------------
+*/
+.button {
+  width: 73%;
+  border-radius: 0;
+  border: none;
+  padding: 10px 14px;
+  background: #07cdff;
+  border: 1px solid #07cdff;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-top: 15px;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.55);
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  filter: brightness(0.5);
+}
+
+#success:disabled {
+  background: #046780;
+  border: var(--darkborder);
+  color: white;
+  cursor: not-allowed;
+}
+
+/* 
+  -----------------------------------
+  SUCCESS MODAL
+  -----------------------------------
+*/
+
+#modal {
+  display: none;
+}
+
+.modal-success {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-success p,
+.modal-success h2 {
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0;
+  margin-top: 7px;
+}
+
+.modal-container {
+  background: var(--darksecondary);
+  padding: 15px;
+  border-radius: 5px;
+  border: var(--darkborder);
+  box-shadow: var(--shadow);
+}
+
+.modal-success svg {
+  fill: mediumseagreen;
+  height: 50px;
+  width: 50px;
+}
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* 
+  -----------------------------------
+  KEY FRAMES 
+  -----------------------------------
+*/
+@-webkit-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -75px 0px;
+  }
+}
+
+@-moz-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -75px 0px;
+  }
+}
+
+@-ms-keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -75px 0px;
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -50px 0px;
+  }
+}

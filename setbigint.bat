@@ -1,0 +1,2 @@
+sed -i "s|assert(false, 'Number can only safely store up to 53 bits')|ret = Number.MAX_SAFE_INTEGER|g" ./node_modules/number-to-bn/node_modules/bn.js/lib/bn.js
+sed -i "s|assert(false, 'Number can only safely store up to 53 bits')|ret = Number.MAX_SAFE_INTEGER|g" ./node_modules/bn.js/lib/bn.js

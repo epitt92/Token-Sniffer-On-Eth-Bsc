@@ -1,0 +1,36 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "token",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "from",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "to",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPairs",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "pairs",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
